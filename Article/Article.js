@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'The ultimate question',
+    date: 'a long time ago',
+    firstParagraph: `To be, or NOT to be, `,
+
+    secondParagraph: `that is the question`,
+
+    thirdParagraph: `Whether it is better to...`
   }
 ];
 
@@ -112,3 +121,72 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articleList = document.querySelector('.articles');
+
+data.forEach(item => {
+  articleList.appendChild(createArticle(item.title,item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+
+});
+
+
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph){
+      //create the DOM elements for the html structure
+      const articleCard = document.createElement('div');
+        const articleTitle = document.createElement('h2');
+        const articleDate = document.createElement('p');
+        const articlePara1 = document.createElement('p');
+        const articlePara2 = document.createElement('p');
+        const articlePara3 = document.createElement('p');
+
+        //extra element to create
+        const sizeBtn = document.createElement('span');
+
+      //////////append those to their higher divs, in this case just one
+
+      articleCard.appendChild(articleTitle);
+      articleCard.appendChild(articleDate);
+      articleCard.appendChild(articlePara1)
+      articleCard.appendChild(articlePara2);
+      articleCard.appendChild(articlePara3);
+      articleCard.appendChild(sizeBtn);
+
+      
+      /////give them all classes
+
+      articleCard.classList.add('article');
+      articleDate.classList.add('date');
+      sizeBtn.classList.add('expandButton');
+
+      /////give them all content from the parameters
+
+      articleTitle.textContent = title;
+      articleDate.textContent = date;
+      articlePara1.textContent = firstParagraph;
+      articlePara2.textContent = secondParagraph;
+      articlePara3.textContent = thirdParagraph;
+
+
+        ///STEP2: add event to span:toggle? span isn't a button that appears 
+
+        // articleCard.addEventListener("click", () => {
+        //       articleCard.classList.toggle('article-open');
+        // })
+
+        //alternatively (teague's answer: just add text content)
+
+        sizeBtn.textContent = "trick";
+        sizeBtn.addEventListener("click", () => {
+          articleCard.classList.toggle('article-open');
+    })
+
+      ////return what was created
+
+      return articleCard;
+
+}
+
+
+////step 3? already returned?
+
+
