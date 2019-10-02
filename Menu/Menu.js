@@ -36,11 +36,18 @@ let menuItems = [
 
 const mommaDiv = document.querySelector('.header');
 
+mommaDiv.appendChild(createMenu(menuItems));
+
+
+
+function createMenu(items) {
+
+  
  ////create html elements
  const poppaDiv = document.createElement('div');
  const honeyDo = document.createElement('ul');
- const menuBtn = document.createElement('img');
- 
+/////////////////////  const menuBtn = document.createElement('img');  ///don't create what is already there!
+ const menuBtn = document.querySelector(".menu-button");////////////////////
 
  ///assign DOM element(s) a class
 poppaDiv.classList.add('menu');
@@ -48,7 +55,7 @@ menuBtn.classList.add('menu-button');
 
 //assign structure for element locations
 poppaDiv.appendChild(honeyDo);
-poppaDiv.appendChild(menuBtn);
+
 
 //add a click event listener to menuBtn
   
@@ -56,20 +63,16 @@ menuBtn.addEventListener("click", () => {
   poppaDiv.classList.toggle('menu--open');
 })
 
-menuItems.forEach(el => {
-  honeyDo.appendChild(createMenu(menuItems));
-})
-
-function createMenu(menuItems) {
 
 ////assign text content: each li needs a array[i]
-const newItem = menuItems.forEach(element => {
+items.forEach(element => {
   const lovelyTasks = document.createElement('li');
   lovelyTasks.textContent = element;
+  honeyDo.appendChild(lovelyTasks);
 })
 
 
-return newItem;
+return poppaDiv;
 
 }
 
