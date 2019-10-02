@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'The ultimate question',
+    date: 'a long time ago',
+    firstParagraph: `To be, or NOT to be, `,
+
+    secondParagraph: `that is the question`,
+
+    thirdParagraph: `Whether it is better to...`
   }
 ];
 
@@ -158,9 +167,26 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
       articlePara3.textContent = thirdParagraph;
 
 
+        ///STEP2: add event to span:toggle? span isn't a button that appears 
+
+        // articleCard.addEventListener("click", () => {
+        //       articleCard.classList.toggle('article-open');
+        // })
+
+        //alternatively (teague's answer: just add text content)
+
+        sizeBtn.textContent = "trick";
+        sizeBtn.addEventListener("click", () => {
+          articleCard.classList.toggle('article-open');
+    })
 
       ////return what was created
 
       return articleCard;
 
 }
+
+
+////step 3? already returned?
+
+
