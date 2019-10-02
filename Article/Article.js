@@ -153,7 +153,9 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
       sizeBtn.classList.add('expandButton');
 
 
-      
+      ////return what was created
+
+      return articleCard;
 
 
 
