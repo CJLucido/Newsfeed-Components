@@ -115,7 +115,11 @@ const data = [
 
 const articleList = document.querySelector('.articles');
 
-articleList.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+data.forEach(item => {
+  articleList.appendChild(createArticle(item.title,item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+
+});
+
 
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph){
       //create the DOM elements for the html structure
@@ -123,8 +127,8 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
         const articleTitle = document.createElement('h2');
         const articleDate = document.createElement('p');
         const articlePara1 = document.createElement('p');
-        const articlePara2 = document.createEelement('p');
-        const articlePara3 = document.createEelement('p');
+        const articlePara2 = document.createElement('p');
+        const articlePara3 = document.createElement('p');
 
         //extra element to create
         const sizeBtn = document.createElement('span');
@@ -138,6 +142,13 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
       articleCard.appendChild(articlePara3);
       articleCard.appendChild(sizeBtn);
 
+      
+      /////give them all classes
+
+      articleCard.classList.add('article');
+      articleDate.classList.add('date');
+      sizeBtn.classList.add('expandButton');
+
       /////give them all content from the parameters
 
       articleTitle.textContent = title;
@@ -146,18 +157,10 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
       articlePara2.textContent = secondParagraph;
       articlePara3.textContent = thirdParagraph;
 
-      /////give them all classes
-
-      articleCard.classList.add('article');
-      articleDate.classList.add('date');
-      sizeBtn.classList.add('expandButton');
 
 
       ////return what was created
 
       return articleCard;
-
-
-
 
 }
