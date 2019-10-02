@@ -138,7 +138,24 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
       articleCard.appendChild(articlePara3);
       articleCard.appendChild(sizeBtn);
 
+      /////give them all content from the parameters
+
+      articleTitle.textContent = title;
+      articleDate.textContent = date;
+      articlePara1.textContent = firstParagraph;
+      articlePara2.textContent = secondParagraph;
+      articlePara3.textContent = thirdParagraph;
+
+      /////give them all classes
+
+      articleCard.classList.add('article');
+      articleDate.classList.add('date');
+      sizeBtn.classList.add('expandButton');
+
+
       
+
+
 
 
 }
